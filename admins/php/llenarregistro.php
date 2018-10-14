@@ -30,6 +30,6 @@
 	}
 	else{
         $_SESSION['user']= $idAdmin;
-        header ("Location: ../index_admin.html");
+        header ("Location: ../../index.html");
 	}
 ?>
