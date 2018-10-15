@@ -39,7 +39,6 @@
 		<div class="row-fluid">
 		<br>
 		<?php if (isset($_GET["id"])){
-
 		$filtro=$_GET["id"];
 		}else{
 		$filtro=0;
@@ -112,7 +111,7 @@
 			<script src="../assets/js/main.js"></script>
 
 
-	</body>
 </html>
+	</body>
 </body>
 </html>
