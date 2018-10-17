@@ -36,7 +36,7 @@
 </head>
 <style type="text/css">
     #about{
-        height: 1100px;
+        height: 1600px;
     }
 </style>
 <body id="page-top">
@@ -98,48 +98,47 @@
                     </div>          
 
                     <section>
-<section>
 							<form name="form1" method="post" action="php/registrar.php">
 								<div class="fields">
                                     <div class="field">
 										<label for="name">Número de Inscripción</label>
-										<input type="number" name="Codigo" id="Codigo" />
+										<input type="number" class="form-control" name="Codigo" id="Codigo" />
 									</div>
 									<div class="field">
 										<label>Asignatura</label>
-										<input type="text" name="Asignatura" id="Asignatura" />
+										<input type="text" class="form-control" name="Asignatura" id="Asignatura" />
 									</div>
                                     <div class="field">
 										<label>Autor</label>
-										<input type="text" name="Autor" id="Autor" />
+										<input type="text" class="form-control" name="Autor" id="Autor" />
 									</div>
                                     <div class="field">
 										<label>Nombre del artículo</label>
-										<input type="text" name="Nombre_articulo" id="Nombre_articulo" />
+										<input type="text" class="form-control" name="Nombre_articulo" id="Nombre_articulo" />
 									</div>
                                     <div class="field">
 										<label>Procedencia</label>
-										<input type="text" name="Procedencia" id="Procedencia" />
+										<input type="text" class="form-control" name="Procedencia" id="Procedencia" />
 									</div>
                                     <div class="field">
 										<label >Número de serie</label>
-										<input type="number" name="Numero_serie" id="Numero_serie" />
+										<input type="number" class="form-control" name="Numero_serie" id="Numero_serie" />
 									</div>
                                     <div class="field">
 										<label>Modelo</label>
-										<input type="text" name="Modelo" id="Modelo" />
+										<input type="text" class="form-control" name="Modelo" id="Modelo" />
 									</div>
                                     <div class="field">
 										<label>Precio</label>
-										<input type="number" name="Precio" id="Precio" />
+										<input type="number" class="form-control" name="Precio" id="Precio" />
 									</div>
                                     <div class="field">
 										<label>Cantidad</label>
-										<input type="number" name="Cantidad" id="Cantidad" />
+										<input type="number" class="form-control" name="Cantidad" id="Cantidad" />
 									</div>
                                     <div class="field">
 										<label>Tipo de archivo</label>
-                                        <select type="text" name="Tipo_archivo" id="Tipo_archivo">
+                                        <select type="text" class="form-control" name="Tipo_archivo" id="Tipo_archivo">
                                             <?php 
                                             while ($data = mysqli_fetch_array($consulta)){
                                             ?>
@@ -151,7 +150,7 @@
 									</div>
                                     <div class="field">
 										<label >Ubicación</label>
-                                        <select type="text" name="Ubicacion" id="Ubicacion">
+                                        <select type="text" class="form-control" name="Ubicacion" id="Ubicacion">
                                             <?php 
                                             while ($data = mysqli_fetch_array($consulta2)){
                                             ?>
@@ -163,7 +162,7 @@
 									</div>
                                     <div class="field">
                                         <label >Clasificación</label>
-                                        <select type="text" name="Clasificacion" id="Clasificación">
+                                        <select type="text" class="form-control" name="Clasificacion" id="Clasificación">
                                             <?php 
                                             while ($data = mysqli_fetch_array($consulta3)){
                                             ?>
@@ -175,7 +174,7 @@
 									</div>
                                     <div class="field">
 										<label>Región</label>
-                                        <select type="text" name="Region" id="Region">
+                                        <select type="text" class="form-control" name="Region" id="Region">
                                             <?php 
                                             while ($data = mysqli_fetch_array($consulta4)){
                                             ?>
