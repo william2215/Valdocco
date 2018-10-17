@@ -133,10 +133,11 @@
                                     ?>    
                                     
                                     </select>
-                                </div>
-                                <br>
-                                <div class="field">
-                                    <select type="text" class="form-control" name="Seccion" id="Seccion" placeholder="Seccion">
+                                    </div>
+                                    <br>
+                                    <div class="field">
+                                        <label >Sección</label>
+                                    <select type="text" name="Seccion" id="Seccion">
                                         <option>A</option>
                                         <option>B</option>
                                         <option>C</option>
@@ -202,7 +203,6 @@
 
     <section id="contact">
         <div class="container">
-            <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
                     <h2 class="section-heading">Let's Get In Touch!</h2>
                     <hr class="my-4">
