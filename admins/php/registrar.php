@@ -15,6 +15,11 @@
     $Ubicacion = $_POST["Ubicacion"];
     $Clasificacion = $_POST["Clasificacion"];
     $Region = $_POST["Region"];
+    $imagen=$_FILES['imagen']['name'];
+    $ruta = $_FILES['imagen']['tmp_name'];
+    $destino = "images/".$imagen;
+    copy($ruta, $destino);
+
     
     //Obtiene los datos en el y determinas los id
 
@@ -75,7 +80,7 @@ $Pedidos = 0;
 
 
 	mysqli_set_charset($conexion,"utf8");
-	$consulta="INSERT INTO catalogo(Codigo, Asignatura, Autor, Nombre_articulo, Procedencia, Cantidad, Fecha_ingreso, Precio, Numero_serie, Modelo, Pedidos, Clasificacion, Dowi, Estado, Tipo_archivo, Ubicacion) VALUES ('$Codigo', '$Asignatura', '$Autor', '$Nombre_articulo', '$Procedencia', '$Cantidad', '$Fecha_ingreso', '$Precio', '$Numero_serie', '$Modelo', '$Pedidos', '$id_Clasificacion', '$id_Region', '$idEstado', '$idTipo_archivo', '$idUbicacion')";
+	$consulta="INSERT INTO catalogo(Codigo, Asignatura, Autor, Nombre_articulo, Procedencia, Cantidad, Fecha_ingreso, Precio, Numero_serie, Modelo, Pedidos, Clasificacion, Dowi, Estado, Tipo_archivo, Ubicacion, Imagen) VALUES ('$Codigo', '$Asignatura', '$Autor', '$Nombre_articulo', '$Procedencia', '$Cantidad', '$Fecha_ingreso', '$Precio', '$Numero_serie', '$Modelo', '$Pedidos', '$id_Clasificacion', '$id_Region', '$idEstado', '$idTipo_archivo', '$idUbicacion', '$destino')";
 	$resultados = mysqli_query($conexion,$consulta);
 
 	if ($resultados==false){

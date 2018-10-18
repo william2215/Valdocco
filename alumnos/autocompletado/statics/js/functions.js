@@ -39,9 +39,11 @@ $(document).ready(function()
             		}
             		else
             		{
-            			html+='<a href="#" class="list-group-item">';
-        				html+='<h4 class="list-group-item-heading">No se ha encontrado nada con '+$("input[name=autocomplete]").val()+'</h4>';
+                        html = '<div class="list-group">';
+            			html+='<a href="php/insertar.php?Nombre='+$("input[name=autocomplete]").val()+'">';
+        				html+='<h4 class="list-group-item-heading">Por favor dele click para aumentar nuestro catalogo. Lamentablemente no se ha encontrado nada con: '+$("input[name=autocomplete]").val()+'</h4>';
         				html+='</a>';
+                        html+='</div>';
             		}
             		html+='</div>';
             		$("#busqueda").html("").append(html);

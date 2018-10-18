@@ -33,14 +33,14 @@ $(document).ready(function()
             			{
             				html+='<a href="index.php?id='+json.data[datos].Codigo+'" onclick="info('+json.data[datos].Codigo+',\''+json.data[datos].Nombre_articulo+'\')" class="list-group-item">';
             				html+='<h4 class="list-group-item-heading">Codigo:' + json.data[datos].Codigo;
-            				html+=' Nombre: ' + json.data[datos].Nombre_articulo+'</h4>';
+            				html+=' Nombrea: ' + json.data[datos].Nombre_articulo+'</h4>';
             				html+='</a>';
             			}
             		}
             		else
             		{
             			html+='<a href="#" class="list-group-item">';
-        				html+='<h4 class="list-group-item-heading">No se ha encontrado nada con '+$("input[name=autocomplete]").val()+'</h4>';
+        				html+='<h4 class="list-group-item-heading">Por favor dele click para aumentar nuestro catalogo. Lamentablemente no se ha encontrado nada con '+$("input[name=autocomplete]").val()+'</h4>';
         				html+='</a>';
             		}
             		html+='</div>';

@@ -6,7 +6,7 @@
 //destruir la sesion para que no queden coockies guardadas de parte del servidor
     session_destroy();
 
-header("Location: ../index_alumno.html")
+header("Location: ../../index.html")
 
     
 

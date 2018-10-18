@@ -10,9 +10,8 @@
 
 ?>
 <html>
-<head>
-
-    <meta charset="utf-8">
+	<head>
+		    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -31,165 +30,163 @@
     <link href="../vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/creative.min.css" rel="stylesheet">
+    <link href="../css/creative.min2.css" rel="stylesheet">
 
 </head>
 <style type="text/css">
     #about{
-        height: 1600px;
+        height: 1100px;
     }
-</style>
-<body id="page-top">
+    </style>
+	<body id="page-top">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+
+			 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top" >Valdocco</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                        <a class="nav-link js-scroll-trigger" href="index_admin.php">Registrar libro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                        <a class="nav-link js-scroll-trigger" href="administrar_prestamos.php">Administrar Prestamos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+                        <a class="nav-link js-scroll-trigger" href="datos.html">Datos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                        <a class="nav-link js-scroll-trigger" href="php/log_out.php">Salir</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+        
 
-    <header class="masthead text-center text-white d-flex">
-        <div class="container my-auto">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <h1 class="text-uppercase">
-                        <strong>Your Favorite Source of Free Bootstrap Themes</strong>
-                    </h1>
-                    <hr>
-                </div>
-                <div class="col-lg-8 mx-auto">
-                    <p class="text-faded mb-5">Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <section class="bg-light" id="about">
+				 <section class="bg-light" id="about">
 
         <div class="container text-dark">
             <div class="row">
                 <div class="col-lg-8 col-xl-12">
                     <div class="col-lg-10 col-xl-12 mx-auto">
-                        <h1 class="text-uppercase text-dark text-center">
-                            <br>
-                            <strong>registar</strong>
+                        <h1 class="text-uppercase text-dark text-center">                        
+                            <strong>registar libro</strong>
                         </h1>
                         <hr>
                     </div>          
 
                     <section>
-							<form name="form1" method="post" action="php/registrar.php">
-								<div class="fields">
-                                    <div class="field">
-										<label for="name">Número de Inscripción</label>
-										<input type="number" class="form-control" name="Codigo" id="Codigo" />
-									</div>
-									<div class="field">
-										<label>Asignatura</label>
-										<input type="text" class="form-control" name="Asignatura" id="Asignatura" />
-									</div>
-                                    <div class="field">
-										<label>Autor</label>
-										<input type="text" class="form-control" name="Autor" id="Autor" />
-									</div>
-                                    <div class="field">
-										<label>Nombre del artículo</label>
-										<input type="text" class="form-control" name="Nombre_articulo" id="Nombre_articulo" />
-									</div>
-                                    <div class="field">
-										<label>Procedencia</label>
-										<input type="text" class="form-control" name="Procedencia" id="Procedencia" />
-									</div>
-                                    <div class="field">
-										<label >Número de serie</label>
-										<input type="number" class="form-control" name="Numero_serie" id="Numero_serie" />
-									</div>
-                                    <div class="field">
-										<label>Modelo</label>
-										<input type="text" class="form-control" name="Modelo" id="Modelo" />
-									</div>
-                                    <div class="field">
-										<label>Precio</label>
-										<input type="number" class="form-control" name="Precio" id="Precio" />
-									</div>
-                                    <div class="field">
-										<label>Cantidad</label>
-										<input type="number" class="form-control" name="Cantidad" id="Cantidad" />
-									</div>
-                                    <div class="field">
-										<label>Tipo de archivo</label>
-                                        <select type="text" class="form-control" name="Tipo_archivo" id="Tipo_archivo">
-                                            <?php 
+
+                        <form name="form1" method="post" action="php/registrar.php" enctype="multipart/form-data">
+                            <div class="fields">
+                                <div class="field">
+
+                                    <input type="text" class="form-control" name="Codigo" id="Codigo" placeholder="Código" />
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <input type="text" class="form-control" name="Asignatura" id="Asignatura" placeholder="Asignatura" />
+                                </div>
+                                <br>
+                                <div class="field">
+
+                                    <input type="text" class="form-control" name="Autor" id="Autor" placeholder="Autor" />
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <input type="text" class="form-control" name="Nombre_articulo" id="Nombre_articulo" placeholder="Nombre_articulo" />
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <input type="text" class="form-control" name="Procedencia" id="Procedencia" placeholder="Procedencia" />
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <input type="number" class="form-control" name="Numero_serie" id="Numero_serie" placeholder="Numero_serie" />
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <input type="text" class="form-control" name="Modelo" id="Modelo" placeholder="Modelo" />
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <input type="number" class="form-control" name="Precio" id="Precio" placeholder="Precio" />
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <input type="number" class="form-control" name="Cantidad" id="Cantidad" placeholder="Cantidad" />
+                                </div>
+                                <br>
+                                 <div class="field">
+                                      <p>Imagen</p><input type="file" class="form-control" name="imagen" id="imagen"/>
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <select type="text" class="form-control" name="Tipo_archivo" id="Tipo_archivo" placeholder="Tipo_archivo">
+                                        <?php 
                                             while ($data = mysqli_fetch_array($consulta)){
                                             ?>
                                             <option><?php echo $data['Descripcion'] ?></option>
                                             <?php
                                               }  
                                             ?>
-                                        </select>
-									</div>
-                                    <div class="field">
-										<label >Ubicación</label>
-                                        <select type="text" class="form-control" name="Ubicacion" id="Ubicacion">
-                                            <?php 
+                                    </select>
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <select type="text" class="form-control" name="Ubicacion" id="Ubicacion" placeholder="Ubicación">
+                                        <?php 
                                             while ($data = mysqli_fetch_array($consulta2)){
                                             ?>
                                             <option><?php echo $data['Nombre_biblioteca'] ?></option>
                                             <?php
                                               }  
                                             ?>
-                                                </select>
-									</div>
-                                    <div class="field">
-                                        <label >Clasificación</label>
-                                        <select type="text" class="form-control" name="Clasificacion" id="Clasificación">
-                                            <?php 
+                                    </select>
+                                    </div>
+                                <br>
+                                <div class="field">
+                                    <select type="text" class="form-control" name="Clasificacion" id="Clasificacion" placeholder="Clasificación">
+                                        <?php 
                                             while ($data = mysqli_fetch_array($consulta3)){
                                             ?>
                                             <option><?php echo $data['Clasificacion'] ?></option>
                                             <?php
                                               }  
                                             ?>
-                                        </select>
-									</div>
-                                    <div class="field">
-										<label>Región</label>
-                                        <select type="text" class="form-control" name="Region" id="Region">
-                                            <?php 
+                                    </select>
+                                    </div> 
+                                <br>
+                                <div class="field">
+                                    <select type="text" class="form-control" name="Region" id="Region" placeholder="Región">
+                                           <?php 
                                             while ($data = mysqli_fetch_array($consulta4)){
                                             ?>
                                             <option><?php echo $data['Dowi'] ?></option>
                                             <?php
                                               }  
                                             ?>
-                                        </select>
-									</div>
-                                    
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Registrar"/></li>
-								</ul>
-							</form>
+                                    </select>
+                                    </div> 
+                                <br>
+                                     <br>
+                                      
+
+                                    <div class="text-center">
+
+                                        <input type="submit" class="btn btn-dark btn-xl js-scroll-trigger sr-button" value="Registrar"/>
+                                        <hr>
+                                    </div>
+
+                            </div>
+                        </form>
+                </section>
+                        
+                    
 
 
                 </div>
@@ -197,60 +194,6 @@
         </div>
     </section>
 
-  
-    <section class="bg-dark text-white">
-        <div class="container text-center">
-            <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-            <a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download Now!</a>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
-                    <hr class="my-4">
-                    <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 ml-auto text-center">
-                    <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
-                    <p>123-456-6789</p>
-                </div>
-                <div class="col-lg-4 mr-auto text-center">
-                    <i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
-                    <p>
-                        <a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Footer -->
-    <footer id="footer">
-
-
-    </footer>
-
-    <!-- Copyright -->
-
-<!--Numero de inscripción   
-Asignatura  
-Autor   
-Nombre_articulo 
-Procedencia 
-Clasificacion   
-Numero_serie    
-Modelo  
-Precio  
-Cantidad    
-Tipo de archivo 
-Ubicacion -->
 <!-- Scripts -->
 <!-- Bootstrap core JavaScript -->
 <script src="../vendor/jquery/jquery.min.js"></script>
@@ -263,16 +206,6 @@ Ubicacion -->
 
 <!-- Custom scripts for this template -->
 <script src="../js/creative.min.js"></script>
-<script>
-    function myFunction() {
-        var cambio = document.getElementById("myInput");
-        if (cambio.type === "password") {
-            cambio.type = "text";
-        } else {
-            cambio.type = "password";
-        }
-    }
-</script>
 
-</body>
+	</body>
 </html>
