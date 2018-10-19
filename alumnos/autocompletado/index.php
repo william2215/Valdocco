@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+header('Access-Control-Allow-Origin: *'); 
+?>
 <html>
 <head>
     <title>Autocompletar con php y mysql utilizando bootstrap</title>
@@ -62,13 +64,15 @@
                         <div class="row-fluid">
                             <br>
 
-                            <?php if (isset($_GET["id"])){
+                            <?php 
+                            //header('Access-Control-Allow-Origin: *');  
+                            if (isset($_GET["id"])){
                                 $filtro=$_GET["id"];
                             }else{
                                 $filtro=0;
                                 ?>
                                 <div class="col-md-12 col-md-offset-2" id="buscador">
-                                    <input type="search" name="autocomplete" class="form-control" placeholder="Search" />
+                                    <input type="search" name="autocomplete" class="form-control" placeholder="Nombre del Libro" />
                                 </div>
                                 <div class="col-md-8 col-md-offset-2" id="busqueda">
 
@@ -83,6 +87,7 @@
 
 
             <?php
+            //header('Access-Control-Allow-Origin: *');  
             require('conexion.php');
             $conexion = $conexion=mysqli_connect($db_host,$db_usuario,$db_contra,$db_name);
             mysqli_set_charset($conexion, 'utf8');
@@ -99,17 +104,17 @@
                         <div class="col-6">
                             <div class="card w-10 ">
                                 <div class="card-header">
-                                    <p><?php echo $mostrar['Nombre_articulo'] ?></p>
+                                    <p><?php  header('Access-Control-Allow-Origin: *'); echo $mostrar['Nombre_articulo'] ?></p>
                                 </div>
-                                <td align="center"><?php echo '<img src="../../admins/php/'.$mostrar['Imagen'].'">'?></td>
+                                <td align="center"><?php  header('Access-Control-Allow-Origin: *');  echo '<img src="../../admins/php/'.$mostrar['Imagen'].'">'?></td>
                                 <div class="card-body">
-                                    <h3 class="card-title"><?php echo $mostrar['Autor'] ?></h3>
+                                    <h3 class="card-title"><?php  header('Access-Control-Allow-Origin: *');  echo $mostrar['Autor'] ?></h3>
                                     <button type="button" class="btn" >Descripcion</button>
                                     <div id="oculto">
-                                        <p class="card-text " ><?php echo $mostrar['Asignatura'] ?><br>Cantidad disponible:<?php echo $mostrar['Cantidad'] ?><br>Modelo:<?php echo $mostrar['Modelo'] ?>    </p>
+                                        <p class="card-text " ><?php  header('Access-Control-Allow-Origin: *');  echo $mostrar['Asignatura'] ?><br>Cantidad disponible:<?php echo $mostrar['Cantidad'] ?><br>Modelo:<?php echo $mostrar['Modelo'] ?>    </p>
                                     </div>
 
-                                    <a href="../Prestamo.php?id=<?php echo $mostrar['Codigo']; ?>" class="btn btn-dark"> Solicitar </a>
+                                    <a href="../Prestamo.php?id=<?php  header('Access-Control-Allow-Origin: *');  echo $mostrar['Codigo']; ?>" class="btn btn-dark"> Solicitar </a>
                                 </div>
                                 <div class="card-footer">
                                     <p>CEDES DON BOSCO</p>
@@ -158,19 +163,19 @@
     </footer>
 
 <!-- Scripts -->
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="js/jquery-1.11.1.min.js"></script>
 
 <script src="statics/js/functions.js"></script>
 
-<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Plugin JavaScript -->
-<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-<script src="../vendor/scrollreveal/scrollreveal.min.js"></script>
-<script src="../vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="../../vendor/scrollreveal/scrollreveal.min.js"></script>
+<script src="../../vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
 <!-- Custom scripts for this template -->
-<script src="../js/creative.min.js"></script>
+<script src="../../js/creative.min.js"></script>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $.ajax({
-        url: "http://localhost/expo/admins/php/data_clasificacion.php",
+        url: "php/data_clasificacion.php",
         method: "GET",
         success: function(data){
             console.log(data);

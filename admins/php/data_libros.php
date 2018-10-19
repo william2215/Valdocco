@@ -1,6 +1,7 @@
 
 <?php
 //define el tipo de data
+header('Access-Control-Allow-Origin: *');  
 header('Content-Type: application/json');
 
 require('conexion.php');

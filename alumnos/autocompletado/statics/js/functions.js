@@ -19,7 +19,7 @@ $(document).ready(function()
     {
         $.ajax({
         	type: "POST",
-            url: "http://localhost/autocompletado/app/instancias/autocomplete.php",
+            url: "app/instancias/autocomplete.php", //http://localhost/autocompletado/app/instancias/
             data: "autocomplete="+$("input[name=autocomplete]").val(),
             success: function(data)
             {

@@ -1,4 +1,5 @@
 <?php
+    header('Access-Control-Allow-Origin: *');  
 	session_start();
 	$libro_encontrado = $_REQUEST['Nombre'];
 	$Carnet = $_SESSION['user'];
