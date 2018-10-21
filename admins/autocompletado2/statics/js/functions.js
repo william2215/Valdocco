@@ -19,41 +19,40 @@ $(document).ready(function()
     {
         $.ajax({
         	type: "POST",
-            url: "http://localhost/autocompletado2/app/instancias/autocomplete.php",
+            url: "app/instancias/autocomplete.php", //http://localhost/autocompletado/app/instancias/
             data: "autocomplete="+$("input[name=autocomplete]").val(),
-            success: function(data)
+           success: function(data)
             {
-            	if(data)
-            	{
-            		var json = JSON.parse(data),
-            			html = '<div class="list-group">';
-            		if(json.res == 'full')
-            		{
-            			for(datos in json.data)
-            			{
-            				html+='<a href="index.php?id='+json.data[datos].idPrestamo+'" onclick="info('+json.data[datos].idPrestamo+',\''+json.data[datos].Carnet+'\')" class="list-group-item">';
-            				html+='<h4 class="list-group-item-heading">Numero de Prestamo:' + json.data[datos].idPrestamo;
-            				html+=' Carnet: ' + json.data[datos].Carnet+'</h4>';
-            				html+='</a>';
-            			}
-            		}
-            		else
-            		{
-            			html+='<a href="#" class="list-group-item">';
-        				html+='<h4 class="list-group-item-heading">No se ha encontrado nada con '+$("input[name=autocomplete]").val()+'</h4>';
-        				html+='</a>';
-            		}
-            		html+='</div>';
-            		$("#busqueda").html("").append(html);
-            	}
+                if(data)
+                {
+                    var json = JSON.parse(data),
+                        html = '<div class="list-group">';
+                    if(json.res == 'full')
+                    {
+                        for(datos in json.data)
+                        {
+                            html+='<a href="index.php?id='+json.data[datos].idPrestamo+'" onclick="info('+json.data[datos].idPrestamo+',\''+json.data[datos].Carnet+'\')" class="list-group-item">';
+                            html+='<h4 class="list-group-item-heading">Numero de Prestamo:' + json.data[datos].idPrestamo;
+                            html+=' Carnet: ' + json.data[datos].Carnet+'</h4>';
+                            html+='</a>';
+                        }
+                    }
+                    else
+                    {
+                        html+='<a href="#" class="list-group-item">';
+                        html+='<h4 class="list-group-item-heading">No se ha encontrado nada con '+$("input[name=autocomplete]").val()+'</h4>';
+                        html+='</a>';
+                    }
+                    html+='</div>';
+                    $("#busqueda").html("").append(html);
+                }
             }
         });
     }, 500);
 
-	$(document).on("click", "a", function()
-	{
-		$("a").removeClass("active");
-		$(this).addClass("active");
-	})
+    $(document).on("click", "a", function()
+    {
+        $("a").removeClass("active");
+        $(this).addClass("active");
+    })
 });
-

@@ -47,7 +47,7 @@
 						<a class="nav-link js-scroll-trigger" href="index_admin.php">Registrar Libro</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="administrar_prestamos.php">Administrar Prestamos</a>
+						<a class="nav-link js-scroll-trigger" href="autocompletado2/index.php">Buscador de estudiantes</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link js-scroll-trigger" href="datos.html">Datos</a>

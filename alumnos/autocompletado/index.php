@@ -9,7 +9,7 @@ header('Access-Control-Allow-Origin: *');
     <meta http-equiv="x-ua-compatible" content="ie-edge">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
-     <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -34,11 +34,13 @@ header('Access-Control-Allow-Origin: *');
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">Valdocco</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"  style="color:white;">Valdocco</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <a class="navbar-brand js-scroll-trigger" href="#page-top">Valdocco</a>
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
+
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="../Catalogo.php">Catalogo</a>
@@ -60,30 +62,29 @@ header('Access-Control-Allow-Origin: *');
 
     <section class="bg-light" id="about">
 
-                    <div class="container">
-                        <div class="row-fluid">
-                            <br>
+        <div class="container">
+            <div class="row-fluid">
+                <br>
 
-                            <?php 
+                <?php 
                             //header('Access-Control-Allow-Origin: *');  
-                            if (isset($_GET["id"])){
-                                $filtro=$_GET["id"];
-                            }else{
-                                $filtro=0;
-                                ?>
-                                <div class="col-md-12 col-md-offset-2" id="buscador">
-                                    <input type="search" name="autocomplete" class="form-control" placeholder="Nombre del Libro" />
-                                </div>
-                                <div class="col-md-8 col-md-offset-2" id="busqueda">
+                if (isset($_GET["id"])){
+                    $filtro=$_GET["id"];
+                }else{
+                    $filtro=0;
+                    ?>
+                    <div class="col-md-12 col-md-offset-2" id="buscador">
+                        <input type="search" name="autocomplete" class="form-control" placeholder="Nombre del Libro" />
+                    </div>
+                    <div class="col-md-8 col-md-offset-2" id="busqueda">
 
-                                </div>
-                                <?php } ?>
-                            </div>
-                        </div>  
-                        <form method="post" action="php/form_alumno.php">
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>  
 
-  
-  
+
+
 
 
             <?php
@@ -100,21 +101,28 @@ header('Access-Control-Allow-Origin: *');
                     <br>
                     
 
-                    <div class="container" style="margin-left: 200px;">
-                        <div class="col-6">
+                    <div class="container">
+                        <div class="col-xs-12 col-md-12" style="float: right;">
                             <div class="card w-10 ">
                                 <div class="card-header">
-                                    <p><?php  header('Access-Control-Allow-Origin: *'); echo $mostrar['Nombre_articulo'] ?></p>
+                                    <p><?php  //header('Access-Control-Allow-Origin: *'); 
+                                    echo $mostrar['Nombre_articulo'] ?></p>
                                 </div>
-                                <td align="center"><?php  header('Access-Control-Allow-Origin: *');  echo '<img src="../../admins/php/'.$mostrar['Imagen'].'">'?></td>
+                                <td align="center"><?php // header('Access-Control-Allow-Origin: *'); 
+                                echo '<img src="../../admins/php/'.$mostrar['Imagen'].'">'?></td>
                                 <div class="card-body">
-                                    <h3 class="card-title"><?php  header('Access-Control-Allow-Origin: *');  echo $mostrar['Autor'] ?></h3>
-                                    <button type="button" class="btn" >Descripcion</button>
-                                    <div id="oculto">
-                                        <p class="card-text " ><?php  header('Access-Control-Allow-Origin: *');  echo $mostrar['Asignatura'] ?><br>Cantidad disponible:<?php echo $mostrar['Cantidad'] ?><br>Modelo:<?php echo $mostrar['Modelo'] ?>    </p>
+                                    <h3 class="card-title"><?php  //header('Access-Control-Allow-Origin: *');
+                                    echo $mostrar['Autor'] ?></h3>
+                                    <button data-toggle="collapse" data-target="#demo" class="btn btn-danger">Descripcion</button>
+                                    <div id="demo">
+                                        <p class="card-text " ><?php // header('Access-Control-Allow-Origin: *');  
+                                        echo $mostrar['Asignatura'] ?><br>Cantidad disponible:<?php echo $mostrar['Cantidad'] ?><br>Modelo:<?php echo $mostrar['Modelo'] ?>    </p>
                                     </div>
+                                    <br>
+                                    <br>
 
-                                    <a href="../Prestamo.php?id=<?php  header('Access-Control-Allow-Origin: *');  echo $mostrar['Codigo']; ?>" class="btn btn-dark"> Solicitar </a>
+                                    <button class="btn btn-dark"><a href="../Prestamo.php?id=<?php // header('Access-Control-Allow-Origin: *');  
+                                    echo $mostrar['Codigo']; ?>" class="btn btn-dark"> Solicitar </a></button>
                                 </div>
                                 <div class="card-footer">
                                     <p>CEDES DON BOSCO</p>
@@ -147,23 +155,21 @@ header('Access-Control-Allow-Origin: *');
     </table>
 </div>
 
-</form>
-
-  </section>
+</section>
 
 </div>
 
 
 
 
-    <!-- Footer -->
-    <footer id="footer">
+<!-- Footer -->
+<footer id="footer">
 
 
-    </footer>
+</footer>
 
 <!-- Scripts -->
-  <script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
 
 <script src="statics/js/functions.js"></script>
 

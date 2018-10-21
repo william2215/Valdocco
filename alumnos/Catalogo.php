@@ -27,7 +27,7 @@
 				<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top">Valdoco</a>
+			<a class="navbar-brand js-scroll-trigger" href="#page-top"  style="color:white;">Valdoco</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -70,14 +70,14 @@
 					<section>	
 		<div class="table-responsive">
 
-		<table border="0" class="table table-light table-xl">
+		<table border="0" class="table table-light table-responsive">
 			<tr>
-				<td align="center">Codigo</td>
+				<td align="center" >Codigo</td>
                 <td align="center">Autor</td>
                 <td align="center">Nombre</td>
-                <td align="center">Clasificacion</td>
-                <td align="center">Cantidad</td>
-                <td align="center">Modelo</td>
+                <td align="center" class="d-xs-none d-xs-none">Clasificacion</td>
+                <td align="center" class="d-xs-none d-xs-none" >Cantidad</td>
+                <td align="center" class="d-xs-none d-xs-none">Modelo</td>
                 <td align="center">Foto</td>
                 <td align="center" colspan="2">Operaciones</td>
 			</tr>
@@ -96,9 +96,9 @@
 				<td align="center"><?php echo $mostrar['Codigo'] ?></td>
                 <td align="center"><?php echo $mostrar['Autor'] ?></td>
 				<td align="center"><?php echo $mostrar['Nombre_articulo'] ?></td>
-				<td align="center"><?php echo $mostrar['Clasificacion'] ?></td>
-                <td align="center"><?php echo $mostrar['Cantidad'] ?></td>
-				<td align="center"><?php echo $mostrar['Modelo'] ?></td>
+				<td align="center" class="d-xs-none "><?php echo $mostrar['Clasificacion'] ?></td>
+                <td align="center" class="d-xs-none "><?php echo $mostrar['Cantidad'] ?></td>
+				<td align="center" class="d-xs-none "><?php echo $mostrar['Modelo'] ?></td>
 				<td align="center"><?php echo '<img src="../admins/php/'.$mostrar['Imagen'].'" width="100">'?></td>
                 <td align="center"><a href="Prestamo.php?id=<?php echo $mostrar['Codigo']; ?>"> Solicitar </a></td>
 			</tr>
