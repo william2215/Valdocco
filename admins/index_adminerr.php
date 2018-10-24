@@ -22,6 +22,7 @@
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
+        <script src="../vendor/jquery/jquery.min.js"></script>
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
@@ -35,8 +36,13 @@
 </head>
 <style type="text/css">
     #about{
-        height: 1500px;
+        height: 1100px;
+        
+       
     }
+    .modal-title{
+    text-align:center;
+}
     </style>
 	<body id="page-top">
 
@@ -184,9 +190,30 @@
 
                             </div>
                         </form>
-                </section>
-                        
-                    
+                </section>            
+  
+</div>
+                              <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" >Codigo en uso</h4>
+        </div>
+          <div class="modal-body">
+          <p>Al parecer el código que ud digite lo posee otro libro, por favor verifique</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>   
+    
+
 
 
                 </div>
@@ -196,7 +223,7 @@
 
 <!-- Scripts -->
 <!-- Bootstrap core JavaScript -->
-<script src="../vendor/jquery/jquery.min.js"></script>
+
 <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Plugin JavaScript -->
@@ -206,6 +233,11 @@
 
 <!-- Custom scripts for this template -->
 <script src="../js/creative.min.js"></script>
+    <script>
+        $(document).ready(function(){
+             $("#myModal").modal();
+        });
+    </script>
 
 	</body>
 </html>

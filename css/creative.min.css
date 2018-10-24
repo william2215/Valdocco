@@ -46,19 +46,19 @@ img::-moz-selection{color:#fbe6d8;background:0 0}
 #mainNav .navbar-nav>li.nav-item>a.nav-link,#mainNav .navbar-nav>li.nav-item>a.nav-link:focus{font-size:.9rem;font-weight:700;text-transform:uppercase;color:#212529}   
 
 #mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,#mainNav .navbar-nav>li.nav-item>a.nav-link:hover{color:#e00097}     
-#mainNav .navbar-nav>li.nav-item>a.nav-link.active,#mainNav .navbar-nav>li.nav-item>a.nav-link:focus.active{color:#e00097!important;background-color:transparent}    
+#mainNav .navbar-nav>li.nav-item>a.nav-link.active,#mainNav .navbar-nav>li.nav-item>a.nav-link:focus.active{color:#e00097!important;background-color:#fbe6d8}    
 
-#mainNav .navbar-nav>li.nav-item>a.nav-link.active:hover,#mainNav .navbar-nav>li.nav-item>a.nav-link:focus.active:hover{background-color:transparent}       
+#mainNav .navbar-nav>li.nav-item>a.nav-link.active:hover,#mainNav .navbar-nav>li.nav-item>a.nav-link:focus.active:hover{background-color:#fbe6d8}       
 
-@media (min-width:992px){#mainNav{border-color:transparent;background-color:transparent}
+@media (min-width:992px){#mainNav{border-color:#fbe6d8;background-color:#fbe6d8}
     
-    #mainNav .navbar-brand{color:rgba(255,255,255,.7)}     
+    #mainNav .navbar-brand{color:#e00097}     
     
-    #mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{color:#fbe6d8}       
+    #mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{color:#ff7100}       
     
     #mainNav .navbar-nav>li.nav-item>a.nav-link{padding:.5rem 1rem}        
     
-    #mainNav .navbar-nav>li.nav-item>a.nav-link,#mainNav .navbar-nav>li.nav-item>a.nav-link:focus{color:rgba(255,255,255,.7)} 
+    #mainNav .navbar-nav>li.nav-item>a.nav-link,#mainNav .navbar-nav>li.nav-item>a.nav-link:focus{color:rgba(0,0,0)} 
     
     #mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,#mainNav .navbar-nav>li.nav-item>a.nav-link:hover{color:#ff7100}
     

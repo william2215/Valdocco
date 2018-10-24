@@ -124,7 +124,25 @@
         </div>
     </section>
 
-
+     <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Datos incorrectos</h4>
+        </div>
+        <div class="modal-body">
+          <p>Por favor verifique los datos ingresados.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
     <!-- Footer -->
     <footer id="footer">
@@ -134,18 +152,6 @@
 
     <!-- Copyright -->
 
-<!--Numero de inscripción   
-Asignatura  
-Autor   
-Nombre_articulo 
-Procedencia 
-Clasificacion   
-Numero_serie    
-Modelo  
-Precio  
-Cantidad    
-Tipo de archivo 
-Ubicacion -->
 <!-- Scripts -->
 <!-- Bootstrap core JavaScript -->
 <script src="../vendor/jquery/jquery.min.js"></script>
@@ -167,6 +173,9 @@ Ubicacion -->
             cambio.type = "password";
         }
     }
+    $(document).ready(function(){
+             $("#myModal").modal();
+        });
 </script>
 
 </body>

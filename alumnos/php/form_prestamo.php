@@ -26,7 +26,7 @@ if($result = mysqli_query($conexion, "SELECT Codigo FROM prestamo WHERE Carnet='
 
 //Funcion para ver si posee un libro del mismo ejemplar
 if($row_cnt >=1){
-    echo "<script> alert('No puedes solicitar más de un prestamo del mismo ejemplar');</script>";
+    header("Location: ../Catalogomsg1.php"); 
 }
 else{
     
@@ -54,7 +54,7 @@ mysqli_set_charset($conexion, 'utf8');
     $Prestamo = $Prestamo + 1;
     //Se asegura de que el alumno no posea 3 o más libros a su nombre
     if ($mostrar2['Prestamo'] >=3){
-        echo "no puedes solicitar más de tres libros";
+        header("Location: ../Catalogomsg2.php"); 
     }
     //llena la tabla prestamo con la informacion de este
     

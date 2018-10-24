@@ -32,6 +32,14 @@ require('conexion.php');
         echo "Error de conexion";
         exit();
     }
+
+    $verificar = "SELECT * FROM alumnos WHERE idCarnet ='$Carnet'";
+    $sql = mysqli_query($conexion, $verificar);
+    $row_cnt = mysqli_num_rows($sql);
+    if($row_cnt ==1){
+        header ("Location: ../sing_upmsg.php");
+    } else{
+
     mysqli_set_charset($conexion, 'utf8');
     $consulta = "INSERT INTO alumnos(idCarnet, Nombre, Pa, Sa, Celular, Password, Seccion, Especialidad, Correo, Prestamo, Nivel) VALUES ('$Carnet', '$Nombre', '$Pa', '$Sa', '$Celular', '$Password', '$Seccion', '$Especialidad', '$Correo', '$Prestamo', '$idNivel')";
     
@@ -46,4 +54,5 @@ require('conexion.php');
             $_SESSION['Nivel']=$Nivel;
             header ("Location: ../catalogo.php");
         }
+    }
     ?>

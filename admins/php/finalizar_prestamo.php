@@ -32,5 +32,6 @@
         echo"Registro eliminado";
         $consulta2 = "UPDATE catalogo SET Cantidad='$Cantidad' WHERE Codigo='$Codigo'";
         $resltados2 = mysqli_query($conexion,$consulta2);
+        header("Location:../administrar_prestamosmsg.php");
     }
 ?>

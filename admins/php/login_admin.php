@@ -23,7 +23,7 @@
                  header("Location:../index_admin.php");//direcciona al inicio
                     }
                 }else{
-                    echo "Datos incorrectos favor verificar los datos ingresados.";    
+                       header("Location:../log_inmsg.html");
                 }
         } 
     }else{

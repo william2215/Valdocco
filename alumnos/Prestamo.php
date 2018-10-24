@@ -88,11 +88,12 @@
 		<table border="0" class="table table-light table-xl">
 			<tr>
 				<td align="center">Fecha Retiro</td>
-				<td align="center"><input type="text" name="Fecha_retiro" id="Fecha_retiro" value="<?= $Fecha_retiro ?>"></td>
+				<td align="center"><input type="text" name="Fecha_retiro"  data-date-format="yyyy-mm-dd" id="datepicker" value="<?= $Fecha_retiro ?>"></td>
 			</tr>
 			<tr>
 				<td align="center">Fecha Devolucion</td>
-				<td align="center"><input type="text" name="Fecha_devolucion" id="Fecha_devolucion" value="<?= $Fecha_devolucion ?>"></td>
+
+				<td align="center">La fecha de devolución de su libro sera la siguiente: <br> <br><input type="text" name="Fecha_devolucion" value="<?= $Fecha_devolucion ?>"></td>
                 <input type="hidden" name="idCarnet" id="idCarnet" value="<?= $Carnet?>">
             </tr>
 
@@ -117,7 +118,34 @@
 </footer>
 		<!-- Scripts -->
 <!-- Bootstrap core JavaScript -->
-<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style type="text/css">
+        // solution 1:
+        .datepicker {
+            font-size: 0.875em;
+        }
+        /* solution 2: the original datepicker use 20px so replace with the following:*/
+        
+        .datepicker td, .datepicker th {
+            width: 1.5em;
+            height: 1.5em;
+        }
+        
+    </style>
+<script type="text/javascript">
+    $('#datepicker').datepicker({
+        weekStart: 1,
+        daysOfWeekHighlighted: "6,0",
+        autoclose: true,
+        todayHighlight: true,
+    });
+ 
+</script>
+
+
+
 <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Plugin JavaScript -->

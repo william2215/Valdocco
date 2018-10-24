@@ -121,6 +121,25 @@
 </section>
 
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Prestamo eliminado</h4>
+        </div>
+        <div class="modal-body">
+          <p>Click en el boton para cerrar</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
 
 
@@ -141,7 +160,12 @@
 <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="../vendor/scrollreveal/scrollreveal.min.js"></script>
 <script src="../vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
+<script src="../js/creative.min.js"></script>
+    <script>
+        $(document).ready(function(){
+             $("#myModal").modal();
+        });
+    </script>
 
 </body>
 </html>

@@ -18,7 +18,7 @@
 	<link href="../vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link href="../css/creative.min.css" rel="stylesheet">
+	<link href="../css/creative.min2.css" rel="stylesheet">
 	</head>
 
 	<body id="page-top">
@@ -123,6 +123,26 @@
 	</div>
 </section>
                 
+         <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">No puedes solicitar más de un ejemplar del mismo libro</h4>
+        </div>
+        <div class="modal-body">
+          <p>Presione el botón para cerrar</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 <!-- Footer -->
 <footer id="footer">
 
@@ -140,5 +160,10 @@
 
 <!-- Custom scripts for this template -->
 <script src="../js/creative.min.js"></script>
+ <script>
+ $(document).ready(function(){
+             $("#myModal").modal();
+        });
+ </script>
 	</body>
 </html>

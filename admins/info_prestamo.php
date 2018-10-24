@@ -1,6 +1,6 @@
 <?php
 session_start();
-$id = $_SESSION['id_libro'];
+$idPrestamo = $_POST['filtro'];
 
 
 //pasa los parametros en la imagen segun la librerio barcode
@@ -30,11 +30,11 @@ $id = $_SESSION['id_libro'];
     
     <style type="text/css">
     #about{
-	   height: 600px;
+	   height: 900px;
         }
     </style>
 	
-    <body id="page-top" class="bg-light">
+    <body id="page-top">
 
 
 		<!-- Navigation -->
@@ -47,13 +47,13 @@ $id = $_SESSION['id_libro'];
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="Catalogo.php">Catalogo</a>
+						<a class="nav-link js-scroll-trigger" href="index_admin.php">Registrar Libro</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="Prestamo_realizados.php">Prestamos</a>
+						<a class="nav-link js-scroll-trigger" href="administrar_prestamos.php">Administrar Prestamos</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="autocompletado/index.php">Buscador</a>
+						<a class="nav-link js-scroll-trigger" href="datos.html">Datos</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link js-scroll-trigger" href="php/log_out.php">Salir</a>
@@ -63,43 +63,44 @@ $id = $_SESSION['id_libro'];
 		</div>
 	</nav>
                        
-				    
 				<!-- Main -->
 	<section class="bg-light" id="about">
 
 		<div class="container text-dark">
 			<div class="row">
-				<div class="col-lg-12 col-xl-12">
-					<div class="col-lg-12 col-xl-12 mx-auto">
+				<div class="col-lg-8 col-xl-12">
+					<div class="col-lg-10 col-xl-12 mx-auto">
 						 <div class="container">
 								<div class="col-sm-12">
+									<div class="card w-10 ">
 										<div class="card-header">
 											<p class="text-center"><strong>Informacion del prestamo</strong></p>
 										</div>
-										<div class="card-body"  >
+										<div class="card-body">
                                             <div id="chart-container" align="center">
-                                                <table border="0" class="table table-light table-responsive" align="center">
-                                                    <tr style="margin-left: 100px">
+                                                <table border="0" class="table table-light table-xl" align="center">
+                                                    <tr>
                                                     <th style="text-align: center;">Id del prestamo</th>
                                                     <th style="text-align: center;">Codigo del libro</th>
                                                     <th style="text-align: center;">Nombre</th>
                                                     <th style="text-align: center;">Fecha de retiro</th>
                                                     <th style="text-align: center;">Fecha de devolución</th>
-                                                    <th style="text-align: center;">Carnet</th>
-                                                     <th style="text-align: center;">Admins</th>
-
+                                                    <th style="text-align: center;">Carnet</th> 
+                                                    <th style="text-align: center;">Operaciones</th>
                                                     <br>
                                                     </tr>
                                                     <?php
                                                     require('php/conexion.php');
                                                     $conexion = mysqli_connect($db_host, $db_usuario, $db_contra, $db_name);
-                                                    $consulta = "SELECT * FROM prestamo order by idPrestamo DESC LIMIT 1";
+                                                    $consulta = "SELECT * FROM prestamo WHERE idPrestamo = '$idPrestamo'";
                                                     $resultados = mysqli_query($conexion, $consulta);
-                                                    $consulta2 = "SELECT Nombre_articulo FROM catalogo WHERE Codigo = '$id'";
-                                                    $resultados2 = mysqli_query($conexion, $consulta2);
+                                                    
                                                     mysqli_set_charset($conexion, 'utf8');
                                                     
                                                     $mostrar = mysqli_fetch_array($resultados);
+                                                    $id = $mostrar['Codigo'];
+                                                    $consulta2 = "SELECT Nombre_articulo FROM catalogo WHERE Codigo = '$id'";
+                                                    $resultados2 = mysqli_query($conexion, $consulta2);
                                                     $mostrar2 = mysqli_fetch_array($resultados2);
                                                     
                                                     {
@@ -111,8 +112,7 @@ $id = $_SESSION['id_libro'];
                                                         <td style="text-align: center;"><?php echo $mostrar['Fecha_retiro']; ?></td>
                                                         <td style="text-align: center;"><?php echo $mostrar['Fecha_devolucion']; ?></td>
                                                         <td style="text-align: center;"><?php echo $mostrar['Carnet']; ?></td>
-                                                        <td style="text-align: center;"><?php echo $mostrar['Admin']; ?></td>
-
+                                                        <td style="text-align: center;"><a href="php/finalizar_prestamo.php?id=<?php echo $mostrar['idPrestamo']; ?>id_libro=<?php echo $mostrar['Codigo'];?>"> Finalizar Prestamo</a></td>
                                                         <?php } ?>
                                                     </tr>
                                                 </table>
@@ -137,26 +137,6 @@ $id = $_SESSION['id_libro'];
 		</div>
 	</div>
 </section>
-        
-          <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Prestamo realizado</h4>
-        </div>
-        <div class="modal-body">
-          <p>Click en el boton para cerrar</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
 
 <!-- Footer -->
 <footer id="footer">
@@ -175,10 +155,5 @@ $id = $_SESSION['id_libro'];
 
 <!-- Custom scripts for this template -->
 <script src="../js/creative.min.js"></script>
-        <script>
-        $(document).ready(function(){
-             $("#myModal").modal();
-        });
-    </script>
 	</body>
 </html>

@@ -20,44 +20,34 @@
     $destino = "images/".$imagen;
     copy($ruta, $destino);
 
+//Conecta con la base de datos
+    require("conexion.php");
+	$conexion=mysqli_connect($db_host,$db_usuario,$db_contra,$db_name);
+
+	if(mysqli_connect_errno()){
+		echo "Error en la conexion";
+		exit();
+	}
     
     //Obtiene los datos en el y determinas los id
+    $sql1 = "SELECT * FROM clasificacion WHERE Clasificacion = '$Clasificacion'";
+    $query1 = mysqli_query($conexion, $sql1);
+    $data1 = mysqli_fetch_array($query1);
+    $id_Clasificacion = $data1['idClasificacion'];
 
-    if($Clasificacion == "Texto"){
-        $id_Clasificacion = 3;
-    } else  if($Clasificacion == "Terror"){
-        $id_Clasificacion = 1;
-    } else  if($Clasificacion == "Romance"){
-        $id_Clasificacion = 2;
-    } else if($Clasificacion == "Artes"){
-        $id_Clasificacion = 4;
-    }
+ $sql2 = "SELECT * FROM dowi WHERE Dowi = '$Region'";
+    $query2 = mysqli_query($conexion, $sql2);
+    $data2 = mysqli_fetch_array($query2);
+    $id_Region = $data2['idDowi'];
 
-    if ($Region == "Inglesa") {
-        $id_Region = 1;
-    } else if ($Region == "Anglosajona") {
-        $id_Region = 2;
-    } else if ($Region == "Costarricense") {
-        $id_Region = 3;
-    } else if ($Region == "Hispana") {
-        $id_Region = 4;
-    } else if ($Region == "Española") {
-        $id_Region = 5;
-    } 
+
 $Pedidos = 0;
     
-    if($Tipo_archivo == "Libro"){
-        $idTipo_archivo = 1;
-    } 
-    else if ($Tipo_archivo == "Revista"){
-        $idTipo_archivo = 2;
-    }
-    else if ($Tipo_archivo == "Articulo de periódico"){
-        $idTipo_archivo = 3;
-    } 
-    else if ($Tipo_archivo == "PDF") {
-        $idTipo_archivo = 4;
-    }
+
+$sql3 = "SELECT * FROM tipo_archivo WHERE Descripcion = '$Tipo_archivo'";
+    $query3 = mysqli_query($conexion, $sql3);
+    $data3 = mysqli_fetch_array($query3);
+    $idTipo_archivo = $data3['idTipo_archivo'];
     
     if ($Ubicacion == "Colegio Técnico Don Bosco"){
         $idUbicacion = 1;
@@ -66,20 +56,21 @@ $Pedidos = 0;
         $idUbicacion = 2;
     }  
     
-//Conecta con la base de datos
+
     
-	require("conexion.php");
-	$conexion=mysqli_connect($db_host,$db_usuario,$db_contra,$db_name);
-
-	if(mysqli_connect_errno()){
-		echo "Error en la conexion";
-		exit();
-	}
-
+	
     //Inserta los datos en el catalogo
 
 
 	mysqli_set_charset($conexion,"utf8");
+//Revisa que no haya ningún registro con el mismo codigo
+    $verificar = "SELECT * FROM catalogo WHERE Codigo ='$Codigo'";
+    $sql = mysqli_query($conexion, $verificar);
+    $row_cnt = mysqli_num_rows($sql);
+    if($row_cnt ==1){
+        header ("Location: ../index_adminerr.php");
+    } else{
+    
 	$consulta="INSERT INTO catalogo(Codigo, Asignatura, Autor, Nombre_articulo, Procedencia, Cantidad, Fecha_ingreso, Precio, Numero_serie, Modelo, Pedidos, Clasificacion, Dowi, Estado, Tipo_archivo, Ubicacion, Imagen) VALUES ('$Codigo', '$Asignatura', '$Autor', '$Nombre_articulo', '$Procedencia', '$Cantidad', '$Fecha_ingreso', '$Precio', '$Numero_serie', '$Modelo', '$Pedidos', '$id_Clasificacion', '$id_Region', '$idEstado', '$idTipo_archivo', '$idUbicacion', '$destino')";
 	$resultados = mysqli_query($conexion,$consulta);
 
@@ -87,6 +78,7 @@ $Pedidos = 0;
 		echo "error en la consulta";
 	}
 	else{
-		header("Location: ../index_admin.php");
+		header("Location: ../index_adminmsg.php");
 	}
+    }
 ?>

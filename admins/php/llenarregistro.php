@@ -23,6 +23,13 @@
 
     //realiza la consulta e inserta los datos en la tabla Admin
 	mysqli_set_charset($conexion,"utf8");
+
+    $verificar = "SELECT * FROM admin WHERE idAdmin ='$idAdmin'";
+    $sql = mysqli_query($conexion, $verificar);
+    $row_cnt = mysqli_num_rows($sql);
+    if($row_cnt ==1){
+        header ("Location: ../index_adminerr.php");
+    } else{
 	$consulta="INSERT INTO admin (idAdmin, Nombre, Pa, Sa, Celular, Correo, Password, Activo, Ultima_sesion ) VALUES ('$idAdmin', '$Nombre', '$Pa', '$Sa', '$Celular', '$Correo', '$Password', '$Activo', '$Ultima_sesion')";
 	$resultados=mysqli_query($conexion,$consulta);
 	if ($resultados==false){
@@ -30,6 +37,7 @@
 	}
 	else{
         $_SESSION['user']= $idAdmin;
-        header ("Location: ../../index.html");
+        header ("Location: ../index_adminmsg.php");
 	}
+    }
 ?>

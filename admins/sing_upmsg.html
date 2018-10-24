@@ -46,7 +46,7 @@
                         <a class="nav-link js-scroll-trigger" href="sing_up.html">Registrarse</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="log_in.html">Iniciar Sesion</a>
+                        <a class="nav-link js-scroll-trigger" href="log_in.html">Iniciar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -64,7 +64,7 @@
           </div>
           <div class="col-lg-8 mx-auto">
             <p class="text-faded mb-5">Te ofrecemos la facilidad de poder solicitar un libro de la biblioteca desde la palma de tu mano</p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Iniciar Sesión</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Registrarse</a>
           </div>
         </div>
       </div>
@@ -78,14 +78,14 @@
                     <div class="col-lg-10 col-xl-12 mx-auto">
                         <h1 class="text-uppercase text-dark text-center">
                             <br>
-                            <strong>Iniciar sesion</strong>
+                            <strong>registar</strong>
                         </h1>
                         <hr>
                     </div>          
 
                     <section>
 
-                        <form name="form1" method="post" action="php/login_admin.php">
+                        <form name="form1" method="post" action="php/llenarregistro.php">
                             <div class="fields">
                                 <div class="field">
 
@@ -93,7 +93,28 @@
                                 </div>
                                 <br>
                                 <div class="field">
-                                    <input type="password" class="form-control" name="Password" id="myInput" placeholder="Contraseña" required/>
+                                    <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Nombre" required>
+                                </div>
+                                <br>
+                                <div class="field">
+
+                                    <input type="text" class="form-control" name="Pa" id="Pa" placeholder="Primer apellido" required>
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <input type="text" class="form-control" name="Sa" id="Sa" placeholder="Segundo apellido" required>
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <input type="text" class="form-control" name="Celular" id="Celular" placeholder="Celular" required>
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <input type="email" class="form-control" name="Correo" id="Correo" placeholder="Correo" required>
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <input type="password" class="form-control" name="Password" id="myInput" placeholder="Contraseña" required>
                                     <br>
                                     <label > Mostrar:</label>
                                     <input type="checkbox" onclick="myFunction()">
@@ -104,9 +125,8 @@
 
                                     <div class="text-center">
 
-                                        <input type="submit" class="btn btn-dark btn-xl js-scroll-trigger sr-button" value="Iniciar sesion"/>
-                                       	<a href="../alumnos/log_in.html">   <hr> <input type="button"  class="btn btn-dark btn-xl js-scroll-trigger sr-button" value="Iniciar como alumnos" /></a>
-                                      
+                                        <input type="submit" class="btn btn-dark btn-xl js-scroll-trigger sr-button" value="Registrar"/>
+                                        <hr>
                                     </div>
 
 
@@ -123,6 +143,27 @@
             </div>
         </div>
     </section>
+    
+     <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Número de cédula en uso</h4>
+        </div>
+        <div class="modal-body">
+          <p>Por favor verificar, si crees que alguien esta usando tu número de cédula no dudes en contactarnos.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 
 
 
@@ -167,6 +208,10 @@ Ubicacion -->
             cambio.type = "password";
         }
     }
+    
+    $(document).ready(function(){
+             $("#myModal").modal();
+        });
 </script>
 
 </body>

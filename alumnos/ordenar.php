@@ -1,18 +1,36 @@
-<?php
-    require("php/conexion.php");
+<?php 
+    require('php/conexion.php');
     $conexion = mysqli_connect($db_host, $db_usuario, $db_contra, $db_name);
+    mysqli_set_charset($conexion, 'utf8');
+    
+    //obtiene el orden en que se mostrará la tabla
+    $order = $_POST['order'];
+
+    if($order == "Codigo"){
+        $consulta = "SELECT * FROM catalogo order by Codigo ASC";
+    } else
+        if($order == "Más solicitados"){
+            $consulta = "SELECT * FROM catalogo order by Pedidos DESC";
+        } else
+            if($order == "Género"){
+                $consulta = "SELECT * FROM catalogo order by Clasificacion ASC";
+            } else 
+                if($order == "Alfabeticamente"){
+                    $consulta = "SELECT * FROM catalogo ORDER BY Nombre_articulo ASC";
+                }
+    
+
+
 ?>
 <html>
-<head>
-
-	<meta charset="utf-8">
+	<head>
+		<title>Catalogo</title>
+		<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-
-	<title>Valdocco</title>
-
-	<!-- Bootstrap core CSS -->
+        
+        <!-- Bootstrap core CSS -->
 	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom fonts for this template -->
@@ -24,33 +42,29 @@
 	<link href="../vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link href="../css/creative.min3.css" rel="stylesheet">
+	<link href="../css/creative.min2.css" rel="stylesheet">
+	</head>
 
-</head>
-<style type="text/css">
-#about{
-	height: 900px;
-}
-</style>
-<body id="page-top">
+	<body id="page-top">
 
-	<!-- Navigation -->
+
+				<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top">Valdocco</a>
+			<a class="navbar-brand js-scroll-trigger" href="#page-top">Valdoco</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="index_admin.php">Registrar Libro</a>
+						<a class="nav-link js-scroll-trigger" href="Catalogo.php">Catalogo</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="administrar_prestamos.php">Administrar Prestamos</a>
+						<a class="nav-link js-scroll-trigger" href="Prestamo_realizados.php">Prestamos</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="datos.html">Datos</a>
+						<a class="nav-link js-scroll-trigger" href="autocompletado/index.php">Buscador</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link js-scroll-trigger" href="php/log_out.php">Salir</a>
@@ -59,80 +73,82 @@
 			</div>
 		</div>
 	</nav>
-
-
+                
+            
+                
+                
+				<!-- Main -->
 	<section class="bg-light" id="about">
-
+       
 		<div class="container text-dark">
 			<div class="row">
 				<div class="col-lg-8 col-xl-12">
 					<div class="col-lg-10 col-xl-12 mx-auto">
 						<h1 class="text-uppercase text-dark text-center">
 							<br>
-							<strong>Administrar</strong>
-
+							<strong>Catalogo de libros</strong>
 						</h1>
 						<hr>
 					</div>          
-<p class="text-center">Bienvenido Administrador a continucacion se le mostrara una tabla en la cual se mostraran los prestamos vigentes</p>
+    <form action="ordenar.php" method="post">
+        <h5>Ordenar por:</h5>
+     <select name="order" onchange="this.form.submit()" value="Ordenar por">
+         <option>Codigo</option>
+         <option>Más solicitados</option>
+         <option>Género</option>
+         <option>Alfabeticamente</option>
+        </select>
+        </form>
 					<section>	
 		<div class="table-responsive">
-            <form name="form1" method="post" action="info_prestamo.php">
-            <input type="text" placeholder="Filtrar prestamo por id" name="filtro">
-            <input class="btn btn-primary btn-xl js-scroll-trigger" style="position:absolute; left: 250px; top: 285px; width: 120px; height:50px; float-right" type="submit" value="Buscar">
-            <br>    
-            <br>
+            
 		<table border="0" class="table table-light table-xl">
 			<tr>
-				<td align="center">Id prestamo</td>
-				<td align="center">Fecha de retiro</td>
-                <td align="center">Fecha de devolución</td>
-                <td align="center">Carnet del Alumno</td>
-                <td align="center">Codigo del libro</td>
+				<td align="center">Codigo</td>
+                <td align="center">Autor</td>
+                <td align="center">Nombre</td>
+                <td align="center">Clasificacion</td>
+                <td align="center">Cantidad</td>
+                <td align="center">Modelo</td>
+                <td align="center">Foto</td>
                 <td align="center" colspan="2">Operaciones</td>
 			</tr>
-      
+            
             <?php
-            mysqli_set_charset($conexion, 'utf8');
-                $consulta = "SELECT * from prestamo";
                 $resultados = mysqli_query($conexion, $consulta);
             
                 while($mostrar = mysqli_fetch_array($resultados)){
                     
             ?>
 			<tr>
-                <td align="center"><?php echo $mostrar['idPrestamo'] ?></td>
-				<td align="center"><?php echo $mostrar['Fecha_retiro'] ?></td>
-				<td align="center"><?php echo $mostrar['Fecha_devolucion'] ?></td>
-				<td align="center"><?php echo $mostrar['Carnet'] ?></td>
-                <td align="center"><?php echo $mostrar['Codigo'] ?></td>
-                <td align="center"><a href="php/finalizar_prestamo.php?id=<?php echo $mostrar['idPrestamo']; ?>id_libro=<?php echo $mostrar['Codigo'];?>"> Libro Regresado </a></td>
+				<td align="center"><?php echo $mostrar['Codigo'] ?></td>
+                <td align="center"><?php echo $mostrar['Autor'] ?></td>
+				<td align="center"><?php echo $mostrar['Nombre_articulo'] ?></td>
+				<td align="center"><?php echo $mostrar['Clasificacion'] ?></td>
+                <td align="center"><?php echo $mostrar['Cantidad'] ?></td>
+				<td align="center"><?php echo $mostrar['Modelo'] ?></td>
+				<td align="center"><?php echo '<img src="../admins/php/'.$mostrar['Imagen'].'" width="100">'?></td>
+                <td align="center"><a href="Prestamo.php?id=<?php echo $mostrar['Codigo']; ?>"> Solicitar </a></td>
 			</tr>
             <?php
                 }
             ?>
 		</table>
-	</div>
-					</section>
+        </div>
+        </section>
+
 
 			</div>
 		</div>
 	</div>
 </section>
-
-
-
-
-
-
+                
 <!-- Footer -->
 <footer id="footer">
 
 
 </footer>
-
-<!-- Copyright -->
-<!-- Scripts -->
+		<!-- Scripts -->
 <!-- Bootstrap core JavaScript -->
 <script src="../vendor/jquery/jquery.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -142,6 +158,7 @@
 <script src="../vendor/scrollreveal/scrollreveal.min.js"></script>
 <script src="../vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-
-</body>
+<!-- Custom scripts for this template -->
+<script src="../js/creative.min.js"></script>
+	</body>
 </html>
